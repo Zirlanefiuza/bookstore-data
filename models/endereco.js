@@ -14,6 +14,10 @@ export const Endereco = connection.define("endereco", {
     type: DataTypes.STRING(9),
     allowNull: false,
   },
+  bairro:{
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   rua: {
     type: DataTypes.STRING,
     allowNull: false,

@@ -27,15 +27,17 @@ export const Cliente = connection.define("cliente", {
         type: DataTypes.DATE,
         allowNull: false,
     }
+}, {
+    timestamps: true,
 });
 
 
 // Linhas abaixo comentadas porque ainda não foram criados os códigos do arquivo book.js
 
 // Relacionamento 1:1 (Cliente-Endereco)
-// Cliente.hasOne(Endereco);
+// Cliente.hasOne(Endereco, { onDelete: "CASCADE" });
 // Endereco.belongTo(Cliente); //foreign key
 
 // // Relacionamento 1:1 (Cliente-Books)
-// Cliente.hasOne(Books);
+// Cliente.hasMany(Books, { onDelete: "CASCADE" });
 // Books.belongsTo(Cliente);

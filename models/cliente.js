@@ -1,6 +1,6 @@
 import { connection } from "../config/database.js";
 import { DataTypes } from "sequelize";
-// import { Endereco } from "./endereco.js";
+import { Endereco } from "./endereco.js";
 // import { Books } from "./books.js";
 
 export const Cliente = connection.define("cliente", {
@@ -24,20 +24,18 @@ export const Cliente = connection.define("cliente", {
         unique: true
     },
     dataNascimento: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
     }
-}, {
-    timestamps: true,
 });
 
 
 // Linhas abaixo comentadas porque ainda não foram criados os códigos do arquivo book.js
 
-// Relacionamento 1:1 (Cliente-Endereco)
-// Cliente.hasOne(Endereco, { onDelete: "CASCADE" });
-// Endereco.belongTo(Cliente); //foreign key
+//Relacionamento 1:1 (Cliente-Endereco)
+Cliente.hasOne(Endereco, { onDelete: "CASCADE" });
+Endereco.belongsTo(Cliente); //foreign key
 
-// // Relacionamento 1:1 (Cliente-Books)
+// Relacionamento 1:1 (Cliente-Books)
 // Cliente.hasMany(Books, { onDelete: "CASCADE" });
 // Books.belongsTo(Cliente);

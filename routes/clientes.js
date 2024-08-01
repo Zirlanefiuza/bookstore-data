@@ -1,5 +1,5 @@
-import { Cliente } from "./models/cliente.js"
-import { Endereco } from "./models/endereco.js"; 
+import { Cliente } from "../models/cliente.js"
+import { Endereco } from "../models/endereco.js"; 
 import { Router } from "express"; 
 
 export const clientesRouter = Router();
@@ -58,18 +58,19 @@ clientesRouter.put("/clientes/:id", async (req, res) => {
 });
 
 // Deletar um cliente
-clientesRouter.delete("/cliente/:id", async (req, res) => {
+clientesRouter.delete("/clientes/:id", async (req, res) => {
     const idCliente = req.params.id;
 
-    try{
-        const cliente = await Cliente.findOne({where: {id: idCliente}}); 
-        if(cliente) {
+    try {
+        const cliente = await Cliente.findOne({ where: { id: idCliente } });
+
+        if (cliente) {
             await cliente.destroy();
             res.json({ message: "Cliente removido com sucesso." });
-        } else {
+            } else {
             res.status(404).json({ message: "Cliente não encontrado." });
-        }
-    }catch(err) {
-        res.status(500).json({ message: "Erro ao excluir o cliente."});
+            }
+    } catch (err) {
+        res.status(500).json({ message: "Erro ao excluir o cliente" });
     }
-});
+    });

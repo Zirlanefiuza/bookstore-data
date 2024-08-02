@@ -1,7 +1,7 @@
 import { connection } from "../config/database.js";
 import { DataTypes } from "sequelize";
 import { Endereco } from "./endereco.js";
-// import { Books } from "./books.js";
+import { Books } from "./books.js";
 
 export const Cliente = connection.define("cliente", {
     nome: {
@@ -36,6 +36,6 @@ export const Cliente = connection.define("cliente", {
 Cliente.hasOne(Endereco, { onDelete: "CASCADE" });
 Endereco.belongsTo(Cliente); //foreign key
 
-// Relacionamento 1:1 (Cliente-Books)
-// Cliente.hasMany(Books, { onDelete: "CASCADE" });
-// Books.belongsTo(Cliente);
+//Relacionamento 1:1 (Cliente-Books)
+Cliente.hasMany(Books, { onDelete: "CASCADE" });
+Books.belongsTo(Cliente);

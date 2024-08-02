@@ -17,7 +17,7 @@ export async function authenticate(connection) {
     try { 
         await connection.authenticate(); 
         console.log("Conexão foi feita com sucesso!");
-    }catch(err){ 
+    } catch(err) { 
         console.log("Um erro aconteceu!", err);
     }
 }

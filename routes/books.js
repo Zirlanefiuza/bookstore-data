@@ -30,10 +30,10 @@ booksRouter.get("/books/:id", async (req, res) => {
 booksRouter.delete("/books/:id", async (req, res) => {
   const idBooks = req.params.id;
   try {
-    const books = await Pet.findOne({ where: { id: idBooks } });
-    if (books) {
-      await books.destroy();
-      res.json({ message: "Livro removido com sucesso." });
+    const cliente = await cliente.findOne({ where: { id: idCliente } });
+    if (cliente) {
+      await Books.destroy();
+      res.json({ message: "Book removido com sucesso." });
     } else {
       res.status(404).json({ message: "Livro não encontrado." });
     }

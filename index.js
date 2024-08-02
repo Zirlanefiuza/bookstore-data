@@ -4,7 +4,7 @@ import { clientesRouter } from "./routes/clientes.js";
 // import { booksRouter } from "./routes/clientes.js";
 
 authenticate(connection).then(() => {
-    connection.sync({ });
+    connection.sync();
 });
 
 const app = express();
@@ -15,5 +15,5 @@ app.use(clientesRouter);
 
 // Rodar a aplicação
 app.listen(3001, () => {
-    console.log("Servidor rodando em http://localhost:3001/"); 
+    console.log("Servidor rodando em http://localhost:3001/");
 });

@@ -4,7 +4,7 @@ import { clientesRouter } from "./routes/clientes.js";
 import { booksRouter } from "./routes/books.js";
 
 authenticate(connection).then(() => {
-    connection.sync({ });
+    connection.sync({});
 });
 
 const app = express();

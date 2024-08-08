@@ -31,12 +31,12 @@ function Clientes() {
   return (
     <main className="mt-4 container">
       <h1>Clientes</h1>
-      <Button variant="dark" as={Link} to="/clientes/novo">
+      <Button variant="warning" className="mt-2"  as={Link} to="/clientes/novo">
         Adicionar Cliente
       </Button>
       <br />
       {clientes ? (
-        <Table>
+        <Table className="mt-5">
           <thead>
             <tr>
               <th>Nome</th>
@@ -59,6 +59,7 @@ function Clientes() {
                   <td>
                     <Button
                       variant="danger"
+                      className="me-2"
                       size="sm"
                       onClick={() => deletarCliente(cliente.id)}
                     >
@@ -66,6 +67,7 @@ function Clientes() {
                     </Button>
                     <Button
                       variant="dark"
+                      className="me-2"
                       size="sm"
                       as={Link}
                       to={`/clientes/editar/${cliente.id}`}

@@ -31,14 +31,14 @@ function Livros() {
     return (
         <main className="mt-4 container">
             <h1>Livros</h1>
-            <Button variant="info" className="mt-2" as={Link} to="/livros/novo">
+            <Button variant="warning" className="mt-2" as={Link} to="/livros/novo">
                 Adicionar Livro
             </Button>
             <Row className="mt-5">
                 {books ? (
                     books.map((book) => (
                         <Col key={book.id} md={4} className="mb-4">
-                            <Card border="info" style={{ width: '18rem' }}>
+                            <Card border="warning" style={{ width: '18rem' }}>
                                 <Card.Body>
                                     <Card.Title className="text-primary">{book.title}</Card.Title>
                                     <Card.Subtitle className="mb-2">{book.author}</Card.Subtitle>

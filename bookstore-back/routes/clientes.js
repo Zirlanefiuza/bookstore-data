@@ -74,3 +74,4 @@ clientesRouter.delete("/clientes/:id", async (req, res) => {
         res.status(500).json({ message: "Erro ao excluir o cliente" });
     }
     });
+    

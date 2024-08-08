@@ -25,11 +25,11 @@ clientesRouter.get("/clientes/:id", async (req, res) => {
 
 // Inserir um novo cliente
 clientesRouter.post("/clientes", async (req, res) => {
-    const { nome, cpf, email, telefone, dataNascimento, endereco } = req.body;
+    const {cpf, dataNascimento,email,nome,telefone} = req.body;
     try {
         await Cliente.create(
-            {nome, cpf, email, telefone, dataNascimento},
-            {include: [Endereco]},
+            {cpf, dataNascimento,email,nome,telefone},
+            {include: [Cliente]},
         );
         res.json({ message: "Cliente criado com sucesso." });
     } catch(err) {

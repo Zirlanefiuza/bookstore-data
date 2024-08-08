@@ -14,12 +14,14 @@ function NovoCliente() {
   const navigate = useNavigate();
 
   function salvarCliente(data) {
-    addCliente(data).then((resposta) =>{
-      toast.success(resposta.message);
-      navigate("/clientes");
-    }).catch((err) => {
-      toast.error(err.response.data.message);
-    })
+    addCliente(data)
+      .then((resposta) => {
+        toast.success(resposta.message);
+        navigate("/clientes");
+      })
+      .catch((err) => {
+        toast.error(err.response.data.message);
+      });
   }
 
   return (
@@ -40,6 +42,18 @@ function NovoCliente() {
           )}
         </div>
         <div>
+          <label htmlFor="cpf">CPF</label>
+          <input
+            type="cpf"
+            id="cpf"
+            className="form-control"
+            {...register("cpf", { required: true, maxLength: 200 })}
+          />
+          {errors.cpf && (
+            <small className="text-danger">O cpf é inválido!</small>
+          )}
+        </div>
+        <div>
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -49,18 +63,6 @@ function NovoCliente() {
           />
           {errors.email && (
             <small className="text-danger">O email é inválido!</small>
-          )}
-        </div>
-        <div>
-          <label htmlFor="cpf">CPF</label>
-          <input
-            type="cpf"
-            id="cpf"
-            className="form-control"
-            {...register("cpf", { required: true, maxLength: 200 })}
-          />
-          {errors.email && (
-            <small className="text-danger">O cpf é inválido!</small>
           )}
         </div>
         <div>
@@ -78,13 +80,87 @@ function NovoCliente() {
         <div>
           <label htmlFor="dataNascimento">Data de Nascimento</label>
           <input
-            type="text"
+            type="date"
             id="dataNascimento"
             className="form-control"
             {...register("dataNascimento", { required: true, maxLength: 200 })}
           />
+          {errors.dataNascimento && (
+            <small className="text-danger">
+              A Data de Nascimento é inválida!
+            </small>
+          )}
+        </div>
+        <div>
+          <label htmlFor="uf">UF</label>
+          <input
+            type="text"
+            id="uf"
+            className="form-control"
+            {...register("endereco.uf", { required: true, maxLength: 2 })}
+          />
+          {errors.endereco?.uf && (
+            <small className="text-danger">A UF é inválida!</small>
+          )}
+        </div>
+        <div>
+          <label htmlFor="cidade">Cidade</label>
+          <input
+            type="text"
+            id="cidade"
+            className="form-control"
+            {...register("endereco.cidade", { required: true, maxLength: 200 })}
+          />
           {errors.endereco?.cidade && (
-            <small className="text-danger">A Data de Nascimento é inválida!</small>
+            <small className="text-danger">A cidade é inválida!</small>
+          )}
+        </div>
+        <div>
+          <label htmlFor="cep">CEP</label>
+          <input
+            type="text"
+            id="cep"
+            className="form-control"
+            {...register("endereco.cep", { required: true, maxLength: 8 })}
+          />
+          {errors.endereco?.cep && (
+            <small className="text-danger">O CEP é inválido!</small>
+          )}
+        </div>
+        <div>
+          <label htmlFor="bairro">Bairro</label>
+          <input
+            type="text"
+            id="bairro"
+            className="form-control"
+            {...register("endereco.bairro", { required: true })}
+          />
+          {errors.endereco?.bairro && (
+            <small className="text-danger">A rua é inválida!</small>
+          )}
+        </div>
+        <div>
+          <label htmlFor="rua">Rua</label>
+          <input
+            type="text"
+            id="rua"
+            className="form-control"
+            {...register("endereco.rua", { required: true })}
+          />
+          {errors.endereco?.rua && (
+            <small className="text-danger">A rua é inválida!</small>
+          )}
+        </div>
+        <div>
+          <label htmlFor="numero">Número</label>
+          <input
+            type="text"
+            id="numero"
+            className="form-control"
+            {...register("endereco.numero", { required: true })}
+          />
+          {errors.endereco?.numero && (
+            <small className="text-danger">O número é inválido!</small>
           )}
         </div>
         <Button variant="dark" className="mt-3" type="submit">

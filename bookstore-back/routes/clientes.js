@@ -14,7 +14,7 @@ clientesRouter.get("/clientes", async (req, res) => {
 clientesRouter.get("/clientes/:id", async (req, res) => { 
     const cliente = await Cliente.findOne({ 
         where: { id: req.params.id }, 
-        include: [Endereco]
+        include: [Endereco],
     }); 
     if (cliente) {
         res.json(cliente);
@@ -25,17 +25,18 @@ clientesRouter.get("/clientes/:id", async (req, res) => {
 
 // Inserir um novo cliente
 clientesRouter.post("/clientes", async (req, res) => {
-    const {cpf, dataNascimento,email,nome,telefone} = req.body;
+    const { nome, cpf, email, telefone, dataNascimento, endereco } = req.body;
     try {
-        await Cliente.create(
-            {cpf, dataNascimento,email,nome,telefone},
-            {include: [Cliente]},
-        );
-        res.json({ message: "Cliente criado com sucesso." });
-    } catch(err) {
-        res.status(500).json({ message: "Erro ao inserir o cliente."});
+      await Cliente.create(
+        { nome, cpf, email, telefone, dataNascimento, endereco },
+        { include: [Endereco] }
+      );
+      res.json({ message: "Cliente criado com sucesso." });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({ message: "Um erro ocorreu ao inserir cliente." });
     }
-});
+  });
 
 // Atualizar o cliente
 clientesRouter.put("/clientes/:id", async (req, res) => {

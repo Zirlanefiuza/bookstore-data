@@ -5,14 +5,14 @@ import { Router } from "express";
 export const booksRouter = Router();
 
 // Listagem de todos os books
-booksRouter.get("/books", async (req, res) => {
-    const listabooks = await Books.findAll();
+booksRouter.get("/livros", async (req, res) => {
+    const listabooks = await Books.findAll({include: [Cliente]});
     res.send(listabooks);
   });
 
 
 // Listar um books específico
-booksRouter.get("/books/:id", async (req, res) => {
+booksRouter.get("/livros/:id", async (req, res) => {
   const books = await Books.findOne({
     where: { id: req.params.id },
     attributes: { exclude: ["createdAt", "updatedAt"] }, 
@@ -27,7 +27,7 @@ booksRouter.get("/books/:id", async (req, res) => {
 });
 
 // deletar um book específico
-booksRouter.delete("/books/:id", async (req, res) => {
+booksRouter.delete("/livros/:id", async (req, res) => {
   const idBooks = req.params.id;
   try {
     const books = await Books.findOne({ where: { id: idBooks } });
@@ -43,7 +43,7 @@ booksRouter.delete("/books/:id", async (req, res) => {
 });
 
 
-booksRouter.post("/books", async (req, res) =>{
+booksRouter.post("/livros", async (req, res) =>{
   const { title, author, isbn, publishYear, genre, clienteId } = req.body;
   try{
     const cliente = await Cliente.findByPk(clienteId);
@@ -63,7 +63,7 @@ booksRouter.post("/books", async (req, res) =>{
   }
 });
 
-booksRouter.put("/books/:id", async (req, res) =>{
+booksRouter.put("/livros/:id", async (req, res) =>{
   const { title, author, isbn, publishYear, genre } = req.body;
 
   try{

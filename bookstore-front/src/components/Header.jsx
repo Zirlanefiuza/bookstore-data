@@ -1,7 +1,6 @@
-// import NOME-DA-IMAGEM from "./../assets/CAMINHO DA IMAGEM.svg";
-import { Link } from "react-router-dom";
 import logo from "/book-icon.png";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import './Header.css';
 
 
 function Header() {
@@ -18,9 +17,12 @@ function Header() {
           />{' '}
           BookStore
         </Navbar.Brand>
-        <Nav className="gap-5">
-          <Nav.Link className="text-light" href="/clientes">Clientes</Nav.Link>
-          <Nav.Link className="text-light" href="/livros">Livros</Nav.Link>
+        <Nav className="gap-3">
+          <Nav.Link className="nav-home" variant="outline-light" href="/">
+            <span class="material-symbols-outlined">home</span>
+          </Nav.Link>
+          <Nav.Link className="nav-home text-light" href="/clientes">Clientes</Nav.Link>
+          <Nav.Link className="nav-home text-light" href="/livros">Livros</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

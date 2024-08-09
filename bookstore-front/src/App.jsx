@@ -8,6 +8,8 @@ import EditarCliente from "./pages/EditarCliente"
 import Livros from "./pages/Livros";
 import NovoLivro from "./pages/NovoLivro";
 import EditarLivro from "./pages/EditarLivro";
+import Notfound from "./pages/Notfound";
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           <Route path="/livros" element={<Livros />} />
           <Route path="/livros/novo" element={<NovoLivro />} />
           <Route path="/livros/editar/:id" element={<EditarLivro />} />
+          <Route path="*" element = {<Notfound/>}/>
         </Routes>
       </BrowserRouter>
       <Toaster position="bottom-right" />

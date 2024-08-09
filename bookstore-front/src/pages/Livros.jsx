@@ -38,15 +38,15 @@ function Livros() {
                 {books ? (
                     books.map((book) => (
                         <Col key={book.id} md={4} className="mb-4">
-                            <Card border="warning" style={{ width: '18rem' }}>
-                                <Card.Body>
-                                    <Card.Title className="text-primary">{book.title}</Card.Title>
+                            <Card border="warning" bg='dark' style={{ width: '18rem' }}>
+                                <Card.Body className="text-white">
+                                    <Card.Title>{book.title}</Card.Title>
                                     <Card.Subtitle className="mb-2">{book.author}</Card.Subtitle>
                                     <Card.Subtitle className="mt-2">{book.genre}</Card.Subtitle>
-                                    <Card.Text className="mt-2 mb-0 text-muted" >Ano de publicação: {book.publishYear}</Card.Text>
-                                    <Card.Text className="mt-0 mb-0 text-muted" >ISBN: {book.isbn}</Card.Text>
+                                    <Card.Text className="mt-2 mb-0" >Ano de publicação: {book.publishYear}</Card.Text>
+                                    <Card.Text className="mt-0 mb-0" >ISBN: {book.isbn}</Card.Text>
                                     <Card.Text className="mt-2">Cliente: {book.cliente.nome}</Card.Text>
-                                    <Button variant="dark" className="me-2" as={Link} to={`/livros/editar${book.id}`}>Editar</Button>
+                                    <Button variant="secondary" className="me-2" as={Link} to={`/livros/editar${book.id}`}>Editar</Button>
                                     <Button variant="danger" className="me-2" onClick={() => deletarLivro(book.id)}>Excluir</Button>
                                 </Card.Body>
                             </Card>

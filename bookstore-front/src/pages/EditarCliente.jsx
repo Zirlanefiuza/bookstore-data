@@ -34,7 +34,6 @@ function EditarCliente() {
         });
       }
     
-
     useEffect(() => {
         carregarCliente();
     }, [])
@@ -43,7 +42,7 @@ function EditarCliente() {
         <main className="mt-4 container">
             <h1>Editar cliente</h1>
             <hr />
-            <form onSubmit={handleSubmit(atualizarCliente)}>
+            <form onSubmit={handleSubmit(atualizarCliente)} >
                 <div>
                     <label htmlFor="nome">Nome</label>
                     <input

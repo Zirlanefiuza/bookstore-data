@@ -19,11 +19,26 @@ h1 {
   text-align: center;
 }
 
-.rodape {
+/* .rodape {
   display: flex;
   background-color: rgb(26, 23, 23);
   color: #efefef;
   text-align: center;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+} */
+
+.rodape {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  background-color: rgb(26, 23, 23);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  height: 40px; 
+  position: fixed; 
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
+

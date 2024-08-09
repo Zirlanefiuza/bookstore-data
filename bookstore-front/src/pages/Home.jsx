@@ -1,8 +1,9 @@
 import backgroundImage from "/books-bg.jpg";
+import './Home.css';
 
 function Home() {
   return (
-    <main>
+    <main className="home-main">
       <div
         style={{
           backgroundImage: `url(${backgroundImage})`,

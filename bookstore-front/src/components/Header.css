@@ -1,0 +1,25 @@
+.nav-home {
+    padding: 10px 15px;
+    margin: 2px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-home:hover {
+    text-decoration: none;
+    border-radius: 4px;
+    border: 2px solid #fff;
+    background-color: #ffc107;
+    color: #000 !important;
+}
+
+.material-symbols-outlined {
+    color: #fff;
+    font-size: 24px;
+}
+
+.material-symbols-outlined:hover {
+    border-radius: 4px;
+    background-color: #ffc107;
+    color: #000 !important;
+}

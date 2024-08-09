@@ -36,7 +36,7 @@ function Clientes() {
       </Button>
       <br />
       {clientes ? (
-        <Table className="mt-5">
+        <Table bordered hover className="mt-5" variant="dark">
           <thead>
             <tr>
               <th>Nome</th>
@@ -66,7 +66,7 @@ function Clientes() {
                       Excluir
                     </Button>
                     <Button
-                      variant="dark"
+                      variant="secondary"
                       className="me-2"
                       size="sm"
                       as={Link}

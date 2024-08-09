@@ -9,7 +9,8 @@ function Rodape() {
             <span>
               {" "}
               © 2024 Todos os direitos reservados. Miriam Akiko, William Amós e
-              Zirlane Santos{" "}
+              Zirlane Fiuza
+              {" "}
             </span>
           </Col>
         </Row>

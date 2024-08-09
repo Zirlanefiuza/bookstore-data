@@ -7,7 +7,7 @@ function Notfound() {
       <h1>
         Página não encontrada.
         <div>
-          <Button variant="outline-dark" NavLink href="/">
+          <Button variant="outline-light" NavLink href="/">
             Volta para Inicio
           </Button>
         </div>

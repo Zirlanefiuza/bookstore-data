@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
-import { getLivro, updateLivro } from "../api/books"; // Importa a função getLivro
+import { getLivro, updateLivro } from "../api/books"; 
 
 function EditarLivro() {
   const {
@@ -14,8 +14,7 @@ function EditarLivro() {
   } = useForm();
 
   const navigate = useNavigate();
-  const { id } = useParams(); // Pega o ID da URL para saber qual livro está editando
-
+  const { id } = useParams(); 
   function atualizarLivro(data) {
     updateLivro(id, data)
       .then((resposta) => {
@@ -24,16 +23,14 @@ function EditarLivro() {
       })
       .catch((err) => {
         console.error("Erro ao atualizar livro:", err);
-        toast.error(
-          err.response?.data?.message || "Ocorreu um erro ao atualizar o livro."
-        );
+        toast.error(err.response.data.message);
       });
   }
 
   function carregarLivro() {
     getLivro(id)
       .then((dados) => {
-        reset(dados); // Aplica os dados do livro nos inputs do formulário
+        reset(dados); 
       })
       .catch((err) => {
         console.error("Erro ao carregar Livro:", err);
@@ -43,8 +40,8 @@ function EditarLivro() {
   }
 
   useEffect(() => {
-    carregarLivro(); // Chama carregarLivro ao carregar o componente
-  }, []); // Executa uma vez ao carregar a página
+    carregarLivro(); 
+  }, []); 
 
   return (
     <main className="mt-4 container">

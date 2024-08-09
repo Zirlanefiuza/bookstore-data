@@ -46,7 +46,7 @@ function Livros() {
                                     <Card.Text className="mt-2 mb-0" >Ano de publicação: {book.publishYear}</Card.Text>
                                     <Card.Text className="mt-0 mb-0" >ISBN: {book.isbn}</Card.Text>
                                     <Card.Text className="mt-2">Cliente: {book.cliente.nome}</Card.Text>
-                                    <Button variant="secondary" className="me-2" as={Link} to={`/livros/editar${book.id}`}>Editar</Button>
+                                    <Button variant="secondary" className="me-2" as={Link} to={`/livros/editar/${book.id}`}>Editar</Button>
                                     <Button variant="danger" className="me-2" onClick={() => deletarLivro(book.id)}>Excluir</Button>
                                 </Card.Body>
                             </Card>
